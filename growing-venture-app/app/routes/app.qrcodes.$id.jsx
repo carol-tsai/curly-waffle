@@ -1,5 +1,6 @@
 import { useActionData, useLoaderData, useNavigation, useSubmit } from "@remix-run/react";
-import { getQRCode } from "../models/QRCode.server";
+import { useState } from "react";
+import { json, redirect } from "@remix-run/node";
 import { authenticate } from "../shopify.server";
 import {
     Card,

@@ -1,21 +1,20 @@
-import { useEffect } from "react";
-import { useFetcher } from "@remix-run/react";
+import { json } from "@remix-run/node";
+import { useLoaderData, Link, useNavigate } from "@remix-run/react";
 import {
-  Page,
-  Layout,
-  Text,
   Card,
-  Button,
-  BlockStack,
-  Box,
-  List,
-  Link,
-  InlineStack,
   EmptyState,
+  Layout,
+  Page,
+  IndexTable,
+  Thumbnail,
+  Text,
+  Icon,
+  InlineStack,
 } from "@shopify/polaris";
-import { TitleBar, useAppBridge } from "@shopify/app-bridge-react";
+
 import { authenticate } from "../shopify.server";
-import { title } from "process";
+import { getQRCodes } from "../models/QRCode.server";
+import { AlertDiamondIcon, ImageIcon } from "@shopify/polaris-icons";
 
 export async function loader({ request }) {
   const { admin, session } = await authenticate.admin(request);
@@ -38,6 +37,12 @@ const EmptyQRCodeState =({onAction}) => (
       <p>Allow customers to scan codes and buy products using their phones</p>
     </EmptyState>
 )
+
+function truncate(str, { length = 25 } = {}) {
+  if (!str) return "";
+  if (str.length <= length) return str;
+  return str.slice(0, length) + "…";
+}
 
 const QRTable = ({qrCodes}) => (
   <IndexTable

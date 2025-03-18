@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "63aa417998eea20f4f5a783a865e1224"
-application_url = "https://trace-bus-lectures-dressing.trycloudflare.com"
+application_url = "https://bali-learners-roll-greatest.trycloudflare.com"
 embedded = true
 name = "growing-venture-app"
 handle = "growing-venture-app-7"
@@ -27,9 +27,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://trace-bus-lectures-dressing.trycloudflare.com/auth/callback",
-  "https://trace-bus-lectures-dressing.trycloudflare.com/auth/shopify/callback",
-  "https://trace-bus-lectures-dressing.trycloudflare.com/api/auth/callback"
+  "https://bali-learners-roll-greatest.trycloudflare.com/auth/callback",
+  "https://bali-learners-roll-greatest.trycloudflare.com/auth/shopify/callback",
+  "https://bali-learners-roll-greatest.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]
